@@ -1,0 +1,38 @@
+import { Button, Container, Nav, Navbar as NavBarBs } from "react-bootstrap"
+import { NavLink } from "react-router-dom"
+
+export function Navbar() {
+  return (
+    <NavBarBs className="bg-white shadow-sm mb-3">
+      <Container>
+        <Nav className="me-auto">
+          <Nav.Link to="/" as={NavLink}>
+            Home
+          </Nav.Link>
+          <Nav.Link to="/store" as={NavLink}>
+            Store
+          </Nav.Link>
+          <Nav.Link to="/about" as={NavLink}>
+            About
+          </Nav.Link>
+        </Nav>
+      <Button 
+        variant={"outline-primary"} 
+        className="rounded-circle p-2"
+      >
+        <svg 
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" className="iconify iconify--icon-park" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+          <g fill="none">
+            <path fill="#00a8e8" d="M39 32H13L8 12H44L39 32Z"></path>
+            <path stroke="#000" strokeLinecap="round" strokeLinejoin="round"  strokeWidth="4" d="M3 6H6.5L8 12M8 12L13 32H39L44 12H8Z"></path>
+              <circle cx="13" cy="39" r="3" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4"></circle>
+              <circle cx="39" cy="39" r="3" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4"></circle>
+              <path stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M22 22H30"></path>
+              <path stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M26 26V18"></path>
+          </g>
+        </svg>
+       </Button>
+      </Container>
+    </NavBarBs>
+  )
+}
