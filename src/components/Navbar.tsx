@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom"
 
 export function Navbar() {
   return (
-    <NavBarBs className="bg-white shadow-sm mb-3">
+    <NavBarBs sticky="top" className="shadow-sm mb-3" style={{backgroundColor: "#dee2ff"}}>
       <Container>
-        <Nav className="me-auto">
+        <Nav className="me-auto fw-bold">
           <Nav.Link to="/" as={NavLink}>
             Home
           </Nav.Link>
@@ -16,7 +16,8 @@ export function Navbar() {
             About
           </Nav.Link>
         </Nav>
-      <Button 
+      <Button
+        style={{ position: "relative" }}
         variant={"outline-primary"} 
         className="rounded-circle p-2"
       >
@@ -31,6 +32,19 @@ export function Navbar() {
               <path stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M26 26V18"></path>
           </g>
         </svg>
+        <div 
+          className="rounded-circle bg-danger d-flex justify-content-center align-items-center"  
+          style={{ 
+            position: "absolute", 
+            color: "white", 
+            bottom: "0", 
+            right: "0", 
+            width: "1.5rem", 
+            height: "1.5rem",
+            transform: "translate(25%, 25%)"
+          }}>
+          3
+        </div>
        </Button>
       </Container>
     </NavBarBs>
