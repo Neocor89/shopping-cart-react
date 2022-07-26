@@ -5,7 +5,7 @@ import storeItems from "../data/items.json"
 export function Store() {
   return (
     <>
-      <h1 className="mb-5 d-flex justify-content-center">Store</h1>
+      <h1 className="mb-4 mt-4 d-flex justify-content-center">Store</h1>
       <Row 
         md={2} 
         xs={1} 

@@ -5,7 +5,7 @@ export function Navbar() {
   return (
     <NavBarBs sticky="top" className="shadow-sm mb-3" style={{backgroundColor: "#dee2ff"}}>
       <Container>
-        <Nav className="me-auto fw-bold">
+        <Nav className="me-auto" style={{fontSize: "18px", fontWeight: "600"}}>
           <Nav.Link to="/" as={NavLink}>
             Home
           </Nav.Link>
@@ -22,7 +22,7 @@ export function Navbar() {
         className="rounded-circle p-2"
       >
         <svg 
-        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" className="iconify iconify--icon-park" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" className="iconify iconify--icon-park" width="30" height="30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
           <g fill="none">
             <path fill="#00a8e8" d="M39 32H13L8 12H44L39 32Z"></path>
             <path stroke="#000" strokeLinecap="round" strokeLinejoin="round"  strokeWidth="4" d="M3 6H6.5L8 12M8 12L13 32H39L44 12H8Z"></path>
@@ -33,13 +33,14 @@ export function Navbar() {
           </g>
         </svg>
         <div 
-          className="rounded-circle bg-danger d-flex justify-content-center align-items-center"  
+          className="rounded-circle d-flex justify-content-center align-items-center"  
           style={{ 
             position: "absolute", 
-            color: "white", 
+            color: "white",
+            backgroundColor: "#ff0054",
             bottom: "0", 
             right: "0", 
-            width: "1.5rem", 
+            width: "1.5rem",
             height: "1.5rem",
             transform: "translate(25%, 25%)"
           }}>
