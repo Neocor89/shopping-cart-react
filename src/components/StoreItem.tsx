@@ -29,7 +29,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
         style={{ objectFit: "cover" }} 
       />
       <Card.Body className="d-flex flex-column">
-        <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+        <Card.Title className="d-flex justify-content-between align-items-baseline mb-2">
           <span className="fs-4" style={{color: "#1b263b"}}>{name}</span>
           <span className="ms-2 text-muted">{formatCurrency(price)}</span>
         </Card.Title>
@@ -75,7 +75,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
                 style={{ 
                   backgroundColor: "#E0004B", 
                   borderColor: "transparent", 
-                  margin: "5px 0", 
+                  margin: "5px 0 0 0", 
                   width: "35%",
                   fontWeight: "bold"
                 }}
