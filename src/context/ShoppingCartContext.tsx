@@ -1,4 +1,6 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react"
+import { ShoppingCart } from "../components/ShoppingCart"
+
 
 type ShoppingCartProviderProps = {
   children: ReactNode
@@ -17,10 +19,14 @@ type CartItem = {
 :: Besoin du StoreItem component
 */
 type ShoppingCartContext = {
+  openCart: () => void
+  closeCart: () => void
   getItemQuantity: (id: number) => number
   incrementQuantity: (id: number) => void
   decrementQuantity: (id: number) => void
   removeQuantity: (id: number) => void
+  cartQuantity: number
+  cartItems: CartItem[]
 }
 
 /*
@@ -34,16 +40,30 @@ export function useShoppingCart() {
 }
 
 
+/*
+:: Function container de la logique du panier
+*/
 export function ShoppingCartProvider( { children }: ShoppingCartProviderProps) {
 
+  const [isOpen, setIsOpen] = useState(false)
   const [cartItems, setCartItems] = useState<CartItem[]>([])
+  /*
+  ! le Getter du useState n'est jamais modifié, 
+  : mais on peut passer une méthode au Getter,
+  :: afin de modifier son comportement
+  ::: toutes les modifications passent par le Setter
+  
+  */
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => item.quantity + quantity, 0
+  )
 
+  const openCart = () => setIsOpen(true)
+  const closeCart = () => setIsOpen(false)
 
   function getItemQuantity(id: number) {
     return cartItems.find(item => item.id === id)?.quantity || 0
   }
-
-
   function incrementQuantity(id: number) {
     setCartItems(currentItems => {
       if (currentItems.find(item => item.id === id) == null) {
@@ -59,7 +79,6 @@ export function ShoppingCartProvider( { children }: ShoppingCartProviderProps) {
       }
     })
   }
-
   function decrementQuantity(id: number) {
     setCartItems(currentItems => {
       if (currentItems.find(item => item.id === id)?.quantity === 1) {
@@ -75,7 +94,6 @@ export function ShoppingCartProvider( { children }: ShoppingCartProviderProps) {
       }
     })
   }
-
   function removeQuantity(id: number) {
     setCartItems(currentItems => {
       return currentItems.filter(item => item.id !== id)
@@ -88,10 +106,15 @@ export function ShoppingCartProvider( { children }: ShoppingCartProviderProps) {
         getItemQuantity, 
         incrementQuantity, 
         decrementQuantity, 
-        removeQuantity 
+        removeQuantity,
+        openCart,
+        closeCart,
+        cartItems,
+        cartQuantity
       }}
     >
       {children}
+      <ShoppingCart isOpen={isOpen}/>
     </ShoppingCartContext.Provider>
   )
 }

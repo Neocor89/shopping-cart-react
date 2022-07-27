@@ -39,7 +39,9 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
             <Button 
             className="btn w-100 text-white fw-bold"
             onClick={() => incrementQuantity(id)}
-            style={{backgroundColor: "#4361ee"}}
+            style={{ 
+              backgroundColor: "#4361ee"
+            }}
             >
               + Add to Cart
             </Button>
@@ -71,10 +73,11 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
               <Button
                 onClick={() => removeQuantity(id)}
                 style={{ 
-                  backgroundColor: "#c44536", 
+                  backgroundColor: "#E0004B", 
                   borderColor: "transparent", 
                   margin: "5px 0", 
-                  width: "30%"
+                  width: "35%",
+                  fontWeight: "bold"
                 }}
               >
                 Remove
